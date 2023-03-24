@@ -752,8 +752,7 @@
                                 <configuration>
                                     <!-- Prevent `gpg` from using pinentry programs -->
                                     <gpgArguments>
-                                        <arg>--pinentry-mode</arg>
-                                        <arg>loopback</arg>
+                                        <arg>--pinentry-mode=loopback</arg>
                                     </gpgArguments>
                                 </configuration>
                             </execution>
@@ -795,66 +794,6 @@
                                         <compileSourceRoot>${project.basedir}/src/main/java17</compileSourceRoot>
                                     </compileSourceRoots>
                                     <multiReleaseOutput>true</multiReleaseOutput>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>release-sign-artifacts</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.projectlombok</groupId>
-                        <artifactId>lombok-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <phase>generate-sources</phase>
-                                <goals>
-                                    <goal>delombok</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <configuration>
-                            <sourcepath>${project.basedir}/target/generated-sources/delombok</sourcepath>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <!--suppress MavenModelInspection -->
-                                    <goal>sign</goal>
-                                </goals>
-                                <configuration>
-                                    <gpgArguments>
-                                        <arg>--pinentry-mode=loopback</arg>
-                                    </gpgArguments>
-                                    <passphraseServerId>flyway-gpg</passphraseServerId>
                                 </configuration>
                             </execution>
                         </executions>
