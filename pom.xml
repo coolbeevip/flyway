@@ -37,7 +37,7 @@
 
     <groupId>io.github.coolbeevip</groupId>
     <artifactId>flyway-parent</artifactId>
-    <version>9.15.2.1</version>
+    <version>9.15.2.2</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
     <description>Flyway: Database Migrations Made Easy.</description>
