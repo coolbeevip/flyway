@@ -25,7 +25,7 @@ with
 <dependency>
     <groupId>io.github.coolbeevip</groupId>
     <artifactId>flyway-core</artifactId>
-    <version>9.15.2.3-SNAPSHOT</version>
+    <version>9.15.2.3</version>
 </dependency>
 ```
 
@@ -35,7 +35,7 @@ with
 <dependency>
     <groupId>io.github.coolbeevip</groupId>
     <artifactId>flyway-core</artifactId>
-    <version>9.15.2.3-SNAPSHOT</version>
+    <version>9.15.2.3</version>
 </dependency>
 ```
 
