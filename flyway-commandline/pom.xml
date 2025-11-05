@@ -23,15 +23,38 @@
         <artifactId>flyway-parent</artifactId>
         <version>9.15.2.3</version>
     </parent>
+    <groupId>io.github.coolbeevip</groupId>
     <artifactId>flyway-commandline</artifactId>
+    <version>9.15.2.3</version>
     <packaging>jar</packaging>
-    <name>${project.artifactId}</name>
+    <name>Flyway Commandline</name>
+    <description>Flyway command-line distribution for database schema migrations.</description>
+    <url>https://github.com/coolbeevip/flyway</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>flyway</id>
+            <organization>Redgate Software</organization>
+            <organizationUrl>https://www.red-gate.com/</organizationUrl>
+            <url>https://flywaydb.org/</url>
+        </developer>
+    </developers>
+    <scm>
+        <url>https://github.com/coolbeevip/flyway</url>
+        <connection>scm:git@github.com:coolbeevip/flyway.git</connection>
+        <developerConnection>scm:git@github.com:coolbeevip/flyway.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
     <properties>
 
-
-
         <flyway-gcp-bigquery.version>${project.version}</flyway-gcp-bigquery.version>
-        <flyway-gcp-spanner.version>9.15.2.3-SNAPSHOT-beta</flyway-gcp-spanner.version>
+        <flyway-gcp-spanner.version>${project.version}</flyway-gcp-spanner.version>
         <flyway-sqlserver.version>${project.version}</flyway-sqlserver.version>
         <flyway-mysql.version>${project.version}</flyway-mysql.version>
         <flyway-firebird.version>${project.version}</flyway-firebird.version>
@@ -39,42 +62,42 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>io.github.coolbeevip</groupId>
             <artifactId>flyway-core</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>io.github.coolbeevip</groupId>
             <artifactId>flyway-community-db-support</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>io.github.coolbeevip</groupId>
             <artifactId>flyway-gcp-bigquery</artifactId>
             <version>${flyway-gcp-bigquery.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>io.github.coolbeevip</groupId>
             <artifactId>flyway-gcp-spanner</artifactId>
             <version>${flyway-gcp-spanner.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>io.github.coolbeevip</groupId>
             <artifactId>flyway-sqlserver</artifactId>
             <version>${flyway-sqlserver.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>io.github.coolbeevip</groupId>
             <artifactId>flyway-mysql</artifactId>
             <version>${flyway-mysql.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>io.github.coolbeevip</groupId>
             <artifactId>flyway-firebird</artifactId>
             <version>${flyway-firebird.version}</version>
             <scope>runtime</scope>
@@ -150,131 +173,157 @@
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derby</artifactId>
+            <version>${version.derby}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derbytools</artifactId>
+            <version>${version.derby}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derbyshared</artifactId>
+            <version>${version.derby}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derbyclient</artifactId>
+            <version>${version.derby}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+            <version>${version.h2}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
+            <version>${version.hsqldb}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
+            <version>${version.mssql-jdbc}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>msal4j</artifactId>
+            <version>${version.msal4j}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.google.cloud</groupId>
             <artifactId>google-cloud-spanner-jdbc</artifactId>
+            <version>${version.spanner}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>net.sourceforge.jtds</groupId>
             <artifactId>jtds</artifactId>
+            <version>${version.jtds}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.singlestore</groupId>
             <artifactId>singlestore-jdbc-client</artifactId>
+            <version>${version.singlestore}</version>
             <scope>runtime</scope>
         </dependency>
         <!-- #2136: JNA is required for MariaDB with unix sockets -->
         <dependency>
             <groupId>net.java.dev.jna</groupId>
             <artifactId>jna</artifactId>
+            <version>${version.jna}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>net.java.dev.jna</groupId>
             <artifactId>jna-platform</artifactId>
+            <version>${version.jna}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.firebirdsql.jdbc</groupId>
             <artifactId>jaybird-jdk18</artifactId>
+            <version>${version.jaybird}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
+            <version>${version.mariadb}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>${version.postgresql}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.oracle.database.jdbc</groupId>
             <artifactId>ojdbc8</artifactId>
+            <version>${version.oracle}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>net.snowflake</groupId>
             <artifactId>snowflake-jdbc</artifactId>
+            <version>${version.snowflake}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
+            <version>${version.sqlite}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.fusesource.jansi</groupId>
             <artifactId>jansi</artifactId>
+            <version>${version.jansi}</version>
         </dependency>
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>s3</artifactId>
+            <version>${version.aws-java-sdk}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
+            <version>${version.gson}</version>
         </dependency>
         <dependency>
             <groupId>com.google.cloud</groupId>
             <artifactId>google-cloud-storage</artifactId>
+            <version>${version.gcs}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.amazonaws.secretsmanager</groupId>
             <artifactId>aws-secretsmanager-jdbc</artifactId>
+            <version>${version.aws-secretsmanager}</version>
             <optional>true</optional>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${version.lombok}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
+            <version>${version.commonstext}</version>
             <scope>runtime</scope>
         </dependency>
 
