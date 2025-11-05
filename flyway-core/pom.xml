@@ -186,7 +186,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>${version.maven-javadoc-plugin}</version>
                 <configuration>
                     <sourcepath>${project.basedir}/target/generated-sources/delombok</sourcepath>
                     <sourceFileIncludes>

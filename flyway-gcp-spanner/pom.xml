@@ -28,7 +28,7 @@
     <artifactId>flyway-gcp-spanner</artifactId>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
-    <version>9.15.2.3-SNAPSHOT-beta</version>
+    <version>9.15.2.3</version>
 
     <dependencies>
         <dependency>
