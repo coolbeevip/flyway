@@ -4,7 +4,7 @@ See original [README](README)
 
 ## Why should you use this library?
 
-Support Oracle 10, Oracle 11g, MariaDB 10.1, AntDB
+Support Oracle 10, Oracle 11g, MariaDB 10.1, AntDB，DM8
 
 ## How to you use this library as a replacement for org.coolbeevip.flywaydb:flyway-core
 
