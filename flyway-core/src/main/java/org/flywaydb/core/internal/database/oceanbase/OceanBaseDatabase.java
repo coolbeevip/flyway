@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.flywaydb.core.internal.database.dameng;
+package org.flywaydb.core.internal.database.oceanbase;
 
 import org.flywaydb.core.api.configuration.Configuration;
 import org.flywaydb.core.internal.database.base.Database;
@@ -23,25 +23,23 @@ import org.flywaydb.core.internal.jdbc.StatementInterceptor;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.Set;
 
-public class DMDatabase extends Database<DMConnection> {
+public class OceanBaseDatabase extends Database<OceanBaseConnection> {
 
-    public DMDatabase(Configuration configuration, JdbcConnectionFactory jdbcConnectionFactory, StatementInterceptor statementInterceptor) {
+    public OceanBaseDatabase(Configuration configuration, JdbcConnectionFactory jdbcConnectionFactory, StatementInterceptor statementInterceptor) {
         super(configuration, jdbcConnectionFactory, statementInterceptor);
     }
 
     @Override
-    protected DMConnection doGetConnection(Connection connection) {
-        return new DMConnection(this, connection);
+    protected OceanBaseConnection doGetConnection(Connection connection) {
+        return new OceanBaseConnection(this, connection);
     }
 
 
     @Override
     public final void ensureSupported() {
-        ensureDatabaseIsRecentEnough("8");
-        recommendFlywayUpgradeIfNecessaryForMajorVersion("8.1");
+        ensureDatabaseIsRecentEnough("4");
+        recommendFlywayUpgradeIfNecessaryForMajorVersion("4.2");
     }
 
     @Override
@@ -89,36 +87,5 @@ public class DMDatabase extends Database<DMConnection> {
      */
     boolean queryReturnsRows(String query, String... params) throws SQLException {
         return getMainConnection().getJdbcTemplate().queryForBoolean("SELECT CASE WHEN EXISTS(" + query + ") THEN 1 ELSE 0 END FROM DUAL", params);
-    }
-
-    /**
-     * Checks whether the specified privilege or role is granted to the current user.
-     *
-     * @return {@code true} if it is granted, {@code false} if not.
-     * @throws SQLException if the check failed.
-     */
-    boolean isPrivOrRoleGranted(String name) throws SQLException {
-        return queryReturnsRows("SELECT 1 FROM SESSION_PRIVS WHERE PRIVILEGE = ? UNION ALL " + "SELECT 1 FROM SESSION_ROLES WHERE ROLE = ?", name, name);
-    }
-
-
-    /**
-     * Returns the set of Oracle options available on the target database.
-     *
-     * @return the set of option titles.
-     * @throws SQLException if retrieving of options failed.
-     */
-    private Set<String> getAvailableOptions() throws SQLException {
-        return new HashSet<>(getMainConnection().getJdbcTemplate().queryForStringList("SELECT PARAMETER FROM V$OPTION WHERE VALUE = 'TRUE'"));
-    }
-
-    /**
-     * Checks whether Flashback Data Archive option is available or not.
-     *
-     * @return {@code true} if it is available, {@code false} if not.
-     * @throws SQLException when checking availability of the feature failed.
-     */
-    boolean isFlashbackDataArchiveAvailable() throws SQLException {
-        return getAvailableOptions().contains("Flashback Data Archive");
     }
 }
