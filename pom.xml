@@ -775,7 +775,7 @@
                         <configuration>
                             <publishingServerId>central</publishingServerId>
                             <autoPublish>true</autoPublish>
-                            <waitUntil>complete</waitUntil>
+                            <waitUntil>uploaded</waitUntil>
                             <failOnBuildFailure>true</failOnBuildFailure>
                         </configuration>
                     </plugin>
