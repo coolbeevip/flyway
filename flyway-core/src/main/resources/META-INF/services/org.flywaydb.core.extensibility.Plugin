@@ -13,6 +13,7 @@ org.flywaydb.core.internal.database.sqlite.SQLiteDatabaseType
 org.flywaydb.core.internal.database.sybasease.SybaseASEJConnectDatabaseType
 org.flywaydb.core.internal.database.sybasease.SybaseASEJTDSDatabaseType
 org.flywaydb.core.internal.database.dameng.DMDatabaseType
+org.flywaydb.core.internal.database.oceanbase.OceanBaseDatabaseType
 org.flywaydb.core.internal.database.base.TestContainersDatabaseType
 org.flywaydb.core.internal.schemahistory.BaseAppliedMigration
 org.flywaydb.core.internal.resource.CoreResourceTypeProvider
