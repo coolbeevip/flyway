@@ -4,7 +4,7 @@ See original [README](README)
 
 ## Why should you use this library?
 
-Support Oracle 10, Oracle 11g, MariaDB 10.1, AntDB，DM8, OceanBase
+Support Oracle 10, Oracle 11g, MariaDB 10.1, AntDB，DM8, OceanBase, KingbaseES
 
 ## How to you use this library as a replacement for org.coolbeevip.flywaydb:flyway-core
 
@@ -25,7 +25,7 @@ with
 <dependency>
     <groupId>io.github.coolbeevip</groupId>
     <artifactId>flyway-core</artifactId>
-    <version>9.15.2.4</version>
+    <version>9.15.2.5</version>
 </dependency>
 ```
 
@@ -35,7 +35,7 @@ with
 <dependency>
     <groupId>io.github.coolbeevip</groupId>
     <artifactId>flyway-core</artifactId>
-    <version>9.15.2.4</version>
+    <version>9.15.2.5</version>
 </dependency>
 ```
 
